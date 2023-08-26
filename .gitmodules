@@ -1,3 +1,4 @@
 [submodule "src/auth"]
 	path = src/auth
 	url = https://github.com/ISSuh/my-stream-auth.git
+	branch = main
