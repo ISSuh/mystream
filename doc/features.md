@@ -9,12 +9,18 @@
   - jwt
   - redis 
 
-## Media Server
+## Broadcast service
+  - grpc
+
+## Media service
   - audio, video
   - streaming
   - transcoding 
     - rtmp
     - hls, dash
+
+## Chat
+  - websocket
 
 ## Log
 - login
