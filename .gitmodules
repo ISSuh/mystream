@@ -1,4 +1,4 @@
-[submodule "src/auth"]
-	path = src/auth
-	url = https://github.com/ISSuh/my-stream-auth.git
+[submodule "media/media_preprocessor"]
+	path = media/media_preprocessor
+	url = https://github.com/ISSuh/mystream-media_preprocessor.git
 	branch = main
