@@ -1,4 +1,17 @@
-[submodule "media/media_preprocessor"]
-	path = media/media_preprocessor
+[submodule "service/channel"]
+	path = service/channel
+	url = https://github.com/ISSuh/mystream-channel.git
+	branch = main
+[submodule "service/broadcast"]
+	path = service/broadcast
+	url = https://github.com/ISSuh/mystream-broadcast.git
+	branch = main
+[submodule "service/media/media_preprocessor"]
+	path = service/media/media_preprocessor
 	url = https://github.com/ISSuh/mystream-media_preprocessor.git
 	branch = main
+[submodule "service/user"]
+	path = service/user
+	url = https://github.com/ISSuh/mystream-user.git
+	branch = main
+
