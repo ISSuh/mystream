@@ -1,6 +1,6 @@
 # my_stream
 
-# 요구사항
+## 요구사항
 
   - 회원
     - 회원 등록
@@ -34,3 +34,17 @@
   - 구독
     - 회원은 타 채널을 구독할 수 있음
       - 구독은 1단계, 2단계 구독을 할 수 있음
+
+## mystream - V1
+
+### Event Storming
+
+![EventStorming](doc/assets/v1/event_storming.png)
+
+### Context Map
+
+![EventStorming](doc/assets/v1/context_map.png)
+
+### External Architecture
+
+![EventStorming](doc/assets/v1/external_architecture.png)
