@@ -1,0 +1,8 @@
+spring:
+  application: 
+    name: mystream-gateway
+  # cloud:
+  #   config:
+
+server:
+  port: 33660
