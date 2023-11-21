@@ -41,6 +41,8 @@
 
 ![EventStorming](doc/assets/v1/event_storming.png)
 
+  - 
+
 ### Context Map
 
 ![EventStorming](doc/assets/v1/context_map.png)
