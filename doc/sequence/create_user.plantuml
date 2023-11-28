@@ -1,0 +1,20 @@
+@startuml "create_user_sequence"
+
+title "create user, broadcast, channel sequence"
+
+participant client
+participant UserService
+participant BroadcastService
+participant ChannelService
+
+client -> UserService : /api/user/v1/user/new\nSignUpDto(emai, username, password)
+
+UserService -> BroadcastService : /api/broadcast/v1/streams/new\nNewStreamDto(id, username)
+
+BroadcastService -> ChannelService : /api/channel/v1/channel/new\nNewChannelDto(id)
+
+BroadcastService <- ChannelService : ApiResult<ChannelDto(\nid, channelStream, channelDescription)>
+
+UserService <- BroadcastService : ApiResult<>(need modify)
+
+client -> UserService : ApiResult<UserDto(id, email, username)>\n(need modify)

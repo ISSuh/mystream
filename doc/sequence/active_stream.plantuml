@@ -1,0 +1,37 @@
+@startuml "active_stream_sequence"
+
+title "active, deactive stream"
+
+participant client
+participant MediaPreprocessor
+participant BroadcastService
+participant Kafka
+participant ChannelService
+
+== active strem ==
+
+client -> MediaPreprocessor : <b>[publish rtmp://address/{streamKey}]
+
+MediaPreprocessor -> BroadcastService : <b>[/api/broadcast/v1/streams/active]\nStreamActiveDto(streaKey)
+
+BroadcastService -> Kafka : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)\n(need modify)
+
+Kafka -> ChannelService : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
+
+MediaPreprocessor <- BroadcastService : ApiResult<StreamStatusDto(\nid, active, url, activeAt, deactiveAt)>
+
+client <- MediaPreprocessor : ok
+
+== deactive strem ==
+
+client -> MediaPreprocessor : <b>[disconnect]
+
+MediaPreprocessor -> BroadcastService : <b>[/api/broadcast/v1/streams/deactive]\nStreamActiveDto(streaKey)
+
+BroadcastService -> Kafka : <b>[stream-deactive]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)\n(need modify)
+
+Kafka -> ChannelService : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
+
+MediaPreprocessor <- BroadcastService : ApiResult<StreamStatusDto(\nid, active, url, activeAt, deactiveAt)>
+
+client <- MediaPreprocessor : ok

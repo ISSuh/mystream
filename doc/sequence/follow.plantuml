@@ -1,0 +1,19 @@
+@startuml "follow_sequence"
+
+title "follow, unfollow channel"
+
+participant client
+participant UserService
+participant ChannelService
+
+== active strem ==
+
+client -> UserService : <b>[/api/user/v1/following/follow]
+
+UserService -> ChannelService : <b>[/api/broadcast/v1/streams/active]\nFollowingDto(userId, channelId)
+
+UserService <- ChannelService : ApiResult<>
+
+client <- UserService : ApiResult<>
+
+== deactive strem ==
