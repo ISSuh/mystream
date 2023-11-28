@@ -7,6 +7,7 @@ participant MediaPreprocessor
 participant BroadcastService
 participant Kafka
 participant ChannelService
+participant MediaStreaming
 
 == active strem ==
 
@@ -14,9 +15,13 @@ client -> MediaPreprocessor : <b>[publish rtmp://address/{streamKey}]
 
 MediaPreprocessor -> BroadcastService : <b>[/api/broadcast/v1/streams/active]\nStreamActiveDto(streaKey)
 
+BroadcastService -> BroadcastService : generate URL
+
 BroadcastService -> Kafka : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)\n(need modify)
 
 Kafka -> ChannelService : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
+
+Kafka -> MediaStreaming : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
 
 MediaPreprocessor <- BroadcastService : ApiResult<StreamStatusDto(\nid, active, url, activeAt, deactiveAt)>
 

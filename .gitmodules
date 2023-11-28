@@ -15,3 +15,7 @@
 	url = https://github.com/ISSuh/mystream-user.git
 	branch = main
 
+[submodule "service/media/media_streaming"]
+	path = service/media/media_streaming
+	url = https://github.com/ISSuh/mystream-media_streaming.git
+	branch = main
