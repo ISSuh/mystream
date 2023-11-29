@@ -37,6 +37,8 @@ BroadcastService -> Kafka : <b>[stream-deactive]\nStreamActiveEvent(\nid, active
 
 Kafka -> ChannelService : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
 
+Kafka -> MediaStreaming : <b>[stream-active]\nStreamActiveEvent(\nid, active, activeAt, deactiveAt)
+
 MediaPreprocessor <- BroadcastService : ApiResult<StreamStatusDto(\nid, active, url, activeAt, deactiveAt)>
 
 client <- MediaPreprocessor : ok
