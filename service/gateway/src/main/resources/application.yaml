@@ -1,8 +1,34 @@
 spring:
   application: 
     name: mystream-gateway
-  # cloud:
-  #   config:
+  cloud:
+    config:
+        enabled: false
+    gateway:
+      routes:
+        - id: mystream-user-service
+          predicates:
+            - Path=/api/user/**
+          uri: lb://MYSTREAM-USER
+          filters:
+            - RewritePath=/api/user/(?<segment>.*), /$\{segment}
+        - id: mystream-broadcast-service
+          predicates:
+            - Path=/api/broadcast/**
+          uri: lb://MYSTREAM-BROADCAST
+          filters:
+            - RewritePath=/api/broadcast/(?<segment>.*), /$\{segment}
+        - id: mystream-channel-service
+          predicates:
+            - Path=/api/channel/**
+          uri: lb://MYSTREAM-CHANNEL
+          filters:
+            - RewritePath=/api/channel/(?<segment>.*), /$\{segment}
 
 server:
   port: 33660
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
