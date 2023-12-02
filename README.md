@@ -88,4 +88,5 @@
 | topic | body | decription
 | -- | -- | -- |
 | stream-active | { "streamId" : 100, "active" : true, "activeAt" : "xxxx"} | stream activated event
-| stream-deactive | { "streamId" : 100, "active" : false, "deactiveAt" : "xxxx"} | stream deactivated event
+| stream-deactive | { "streamId" : 100, "active" : false, "activeAt" : "xxxx", "deactiveAt" : "xxxx"} | stream deactivated event
+| stream-fallback | { "streamId" : 100 } | stream fallback event
