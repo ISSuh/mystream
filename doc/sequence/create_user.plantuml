@@ -7,13 +7,23 @@ participant UserService
 participant BroadcastService
 participant ChannelService
 
-client -> UserService : /api/user/v1/user/new\nSignUpDto(emai, username, password)
+client -> UserService : <b>[/api/user/v1/user/new]\nSignUpDto(emai, username, password)
 
-UserService -> BroadcastService : /api/broadcast/v1/streams/new\nNewStreamDto(id, username)
+UserService -> BroadcastService : <b>[/api/broadcast/v1/streams/new]\nNewStreamDto(id, username)
 
-BroadcastService -> ChannelService : /api/channel/v1/channel/new\nNewChannelDto(id)
+group request fail(circuit breake)
+client <- UserService
+else request success
+BroadcastService -> ChannelService : <b>[/api/channel/v1/channel/new]\nNewChannelDto(id)
+end
 
+group request fail(circuit breake)
+UserService <- BroadcastService
+else request success
 BroadcastService <- ChannelService : ApiResult<ChannelDto(\nid, channelStream, channelDescription)>
+end
+
+' BroadcastService <- ChannelService : ApiResult<ChannelDto(\nid, channelStream, channelDescription)>
 
 UserService <- BroadcastService : ApiResult<>(need modify)
 

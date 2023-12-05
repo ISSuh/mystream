@@ -36,20 +36,35 @@
     - 회원은 타 채널을 구독할 수 있음
       - 구독은 1단계, 2단계 구독을 할 수 있음
     - 구독내역에 대해 기록되어야 함
+    - 추후 구현
 
-## mystream - V1
+## Design
 
 ### Event Storming
 
-![EventStorming](doc/assets/v1/event_storming.png)
+![EventStorming](doc/assets/v2/event_storming.png)
 
 ### Context Map
 
-![EventStorming](doc/assets/v1/context_map.png)
+![EventStorming](doc/assets/v2/context_map.png)
 
 ### External Architecture
 
-![EventStorming](doc/assets/v1/external_architecture.png)
+![EventStorming](doc/assets/v2/external_architecture.png)
+
+## Basic Sequence
+
+### Create user
+
+![user](https://www.plantuml.com/plantuml/png/lP9FJy904CNl_HGJBjAaX7WrfF4FPmyIJcB8iXrmudQxxamXVdjTbzPkQY8dJz1vcVT--pAtBCfBMnkOQ8zASDio-YtZUujMuoJBXCHWfq9G2zZvHbLQiHIWNvMrQ62muPGNqkIK5T26q4eoMZFw5VeZQKpczvtfR-93ZEcaBFh2h1pQmGqiTkNpN3cQ1z3vyJh-MZozREoA3dRjbj9CiLPKG92igh40fvXFZQ_oB1lO1VSKAeteMmWvB1vLpUUeHpojlWSXZQgVhA-4WszQ1pxqnG9xHMQgoUkM17OUrHlctUiMiwGiD8pz7hTQ8tCs0foLQLa9ievA0Ex-zi3dhKYSPsYhYrW7X04uvRcKEcoEgEySFI6tHXO3j8sbgh-ws77_kKJMdfnGO_CoFk0A_YFgZnBIX79g4Ikecuhs7_dubCSROTuTKZXTCxYdScDJlqy0)
+
+### Active & Deactive Stream
+
+![stream](https://www.plantuml.com/plantuml/png/xPB1Q_em5CVl-Ik29mLB-5t55lrjExd1K7QQ7fx9KuDfMfBNmXZxtrSR1KkpYtWPxDGqBtcVRzxtE_C4ZghSCD9aa0z0agvnp1M65VVa4F81OoKuqbANO8bBez5IP-i5bOPNXwKh97fVk4xrloj0IV2qGbThYPtY0dP7wEmy7C1QD973WRDgHMcxPonD-PNIdASfOq4UJxA-AZxXqstsNbPRe_s1EyhBYH2Wb6lAuZEyTe4VNnl6-fUJhFUISqC1fHRRIqtK_qHevKLGjrdR87hU_ZvICMmFDAWHOxscST0UBJeWv6_Bv-YbCCgpf20WYVAVQhGqN5kjnkVnNRvp2kQ7zMXjXnPHyRnGUdUI6WWDgklH7PdNaAxRzuNqxPqciQdFIxr4NncQ1j2AW2f_Sh2BgPpvWPLT8jaGef4iZcsG5TuGPQMzBAn5INUBhC9RGnl9dyA_1FwA1CxGgYettm00)
+
+### Follow
+
+![follow](https://www.plantuml.com/plantuml/png/PP11ImGn38Nl_HLXJmex5AyoCwmembuLJxg7RXirqCaCRJh-VRVKmjIzXPUNxoKvH351qkILa7Y4tUVi_VopXyIb0ljjcD7lb5ekJhAq61Qmdf2baTuYXbSCArbizCS2g2qr362iq8eG9U04mw1KmK4tRYbm3_rvVDTc8PqkibxlT5cA-EklEYcrdUZ69gvbdCDid3LHCYXdcodgiihfWvyh-KdccnntTFjw_D7TjZbzTvtpiD0BnkIb7-j1sRSTQqtv4mx__-A0xDBaVm40)
 
 ## APIs
 
